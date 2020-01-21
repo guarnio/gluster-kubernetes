@@ -17,20 +17,25 @@ spec:
     targetPort: 8080
 ---
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: heketi
   labels:
+    name: deploy-heketi-1
     glusterfs: heketi-deployment
     heketi: deployment
   annotations:
     description: Defines how to deploy Heketi
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: deploy-heketi-1
   template:
     metadata:
       name: heketi
       labels:
+        name: deploy-heketi-1
         glusterfs: heketi-pod
         heketi: pod
     spec:

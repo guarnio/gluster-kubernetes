@@ -149,3 +149,12 @@ The gluster-kubernetes developers hang out in #sig-storage on the Kubernetes Sla
 on IRC channels in #gluster and #heketi at freenode network.
 
 And, of course, you are always welcomed to reach us via Issues and Pull Requests on GitHub.
+
+
+### Additional Nodes by MG
+
+1. topoloy file: on manager "node[]" should be repaced by the actual node name, "storage" must be an ip address. VG and LV will bre created on the specified device.
+2. Do I need guster packages (rpm) installed on the nodes?
+3. deploy running "./gk-deploy -g --admin-key password --user-key password -y"
+4. get the cli (https://github.com/heketi/heketi) and access to the API configuring the variable "HEKETI_CLI_SERVER", for instance 'export HEKETI_CLI_SERVER="http://10.38.0.1:8080"', then running:
+   heketi-client/bin/heketi-cli node list  --user admin --secret password. Get the url from the service
